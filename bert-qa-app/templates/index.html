@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BERT QA System (Edge)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Government FAQ Question Answering</h1>
+        <p class="description">Ask a question about the context below, and the BERT model will find the answer.</p>
+
+        <div class="faq-context">
+            <h2>FAQ Context:</h2>
+            <p>{{ faq_context }}</p>
+        </div>
+
+        <form method="POST" action="/">
+            <label for="question">Your Question:</label>
+            <input type="text" id="question" name="question" placeholder="e.g., How do I apply for a permit?" value="{{ question }}" required>
+            <button type="submit">Get Answer</button>
+        </form>
+
+        {% if answer %}
+            <div class="result">
+                <h2>Answer:</h2>
+                <p class="answer-text">{{ answer }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
