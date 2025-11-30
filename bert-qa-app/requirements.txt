@@ -1,4 +1,5 @@
 # requirements.txt
 flask
 torch
+gunicorn
 transformers
